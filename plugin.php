@@ -92,3 +92,66 @@ function vs_admin_head() {
     $base = YOURLS_SITE . '/user/plugins/yourls-vs-theme/assets/';
     echo '<link rel="stylesheet" href="' . $base . 'admin.css">';
 }
+
+function vs_admin_dashboard() {
+
+    global $ydb;
+
+    $total_links = yourls_number_of_urls();
+    $total_clicks = $ydb->get_var("SELECT SUM(clicks) FROM " . YOURLS_DB_TABLE_URL);
+
+    $recent = yourls_get_db()->get_results(
+        "SELECT * FROM " . YOURLS_DB_TABLE_URL . " ORDER BY timestamp DESC LIMIT 5"
+    );
+
+    ?>
+
+    <div class="vs-admin">
+
+        <h1>🌿 Van Stal Dashboard</h1>
+
+        <div class="vs-cards">
+
+            <div class="vs-card">
+                <h2><?= $total_links ?></h2>
+                <p>Links</p>
+            </div>
+
+            <div class="vs-card">
+                <h2><?= intval($total_clicks) ?></h2>
+                <p>Kliks</p>
+            </div>
+
+        </div>
+
+        <div class="vs-recent">
+
+            <h3>Recente links</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Short URL</th>
+                        <th>Clicks</th>
+                        <th>Datum</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                <?php foreach ($recent as $row): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($row->keyword) ?></td>
+                        <td><?= intval($row->clicks) ?></td>
+                        <td><?= $row->timestamp ?></td>
+                    </tr>
+                <?php endforeach; ?>
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <?php
+}
