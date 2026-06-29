@@ -1,3 +1,68 @@
+body {
+    margin: 0;
+    font-family: system-ui, Arial;
+    background: #F8F6F2;
+    color: #2E2E2E;
+}
+
+.vs-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vs-container {
+    width: 100%;
+    max-width: 720px;
+    padding: 20px;
+}
+
+.vs-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.vs-logo {
+    font-weight: 700;
+    font-size: 22px;
+    color: #66784A;
+}
+
+.vs-card {
+    background: #fff;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+button {
+    background: #66784A;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #55653D;
+}
+
+.vs-row {
+    display: flex;
+    gap: 10px;
+}
+
 .vs-toast {
     position: fixed;
     bottom: 20px;
