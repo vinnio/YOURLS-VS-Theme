@@ -2,8 +2,8 @@
 /*
 Plugin Name: YOURLS VS Theme
 Plugin URI: https://github.com/vinnio/YOURLS-VS-Theme
-Description: Moderne Van Stal frontend voor YOURLS (v0.1)
-Version: 0.1
+Description: Moderne Van Stal frontend voor YOURLS (v0.3)
+Version: 0.3
 Author: VanStal
 */
 
